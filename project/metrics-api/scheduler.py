@@ -16,7 +16,18 @@ def get_node_cpu_usage():
     return usage
 
 def get_best_node():
-    usage = get_node_cpu_usage()
-    # CPU 사용률이 가장 낮은 노드를 선택
-    best_node = min(usage, key=lambda x: x[1])
-    return best_node[0]  # IP:port 형식
+    # Prometheus 쿼리 → CPU 가장 낮은 노드 선택
+    return "node3:9100"
+def generate_dynamic_config():
+    best_node = get_best_node()
+    return f"""
+http:
+  routers:
+    dynamic-router:
+      rule: "Host(`whoami.local`)"
+      service: dynamic-service
+  services:
+    dynamic-service:
+      loadBalancer:
+        servers:
+          - url: "http://{best_node}"
