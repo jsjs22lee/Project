@@ -32,7 +32,6 @@ def get_best_node():
 def generate_dynamic_config():
     best_node = get_best_node()
     return f"""\
-
 http:
   routers:
     dynamic-router:
