@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
 from scheduler import generate_dynamic_config
 import os
+
 app = Flask(__name__)
+
 @app.route("/update")
 def update_config():
     config = generate_dynamic_config()
