@@ -77,12 +77,11 @@ services:
         - "traefik.http.routers.whoami.entrypoints=web"
 
   metrics-api:
-    image: python:3.10-slim
+    image: ./metrics-api 
     container_name: metrics-api
     working_dir: /app
     volumes:
       - ./metrics-api:/app
-    command: ["python", "main.py"]
     ports:
       - "8000:8000"
     depends_on:
@@ -92,8 +91,6 @@ services:
 
 # /etc/hosts에 다음 줄 추가 필요:
 # 127.0.0.1 whoami.local
-
-
 
 volumes:
    grafana-data: {}
