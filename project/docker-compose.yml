@@ -77,7 +77,8 @@ services:
         - "traefik.http.routers.whoami.entrypoints=web"
 
   metrics-api:
-    image: ./metrics-api 
+    build: ./metrics-api
+    image: metrics-api:latest 
     container_name: metrics-api
     working_dir: /app
     volumes:
