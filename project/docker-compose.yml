@@ -40,7 +40,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./files/grafana.ini:/etc/grafana/grafana.ini:ro
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini:ro
       - grafana-data:/var/lib/grafana
     logging:
       driver: "json-file"
