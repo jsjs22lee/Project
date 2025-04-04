@@ -86,8 +86,6 @@ services:
       - "8000:8000"
     depends_on:
       - prometheus
-    networks:
-      - monitor-net
 
 # /etc/hosts에 다음 줄 추가 필요:
 # 127.0.0.1 whoami.local
