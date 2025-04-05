@@ -1,7 +1,7 @@
 import requests
 
 PROMETHEUS_URL = "http://prometheus:9090"
-QUERY = '100 - avg by(instance)(rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100'
+QUERY = 'sum by(instance)(rate(node_cpu_seconds_total{mode!="idle"}[10s])) * 100'
 
 def get_node_cpu_usage():
     try:
