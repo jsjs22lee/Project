@@ -99,6 +99,7 @@ services:
     image: metrics-api:1.0
     working_dir: /app
     volumes:
+      - ./traefik/dynamic_conf.yml:/traefik/dynamic_conf.yml
       - ./metrics-api:/app
     ports:
       - "8000:8000"
