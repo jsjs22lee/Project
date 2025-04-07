@@ -68,6 +68,8 @@ services:
       - --api.dashboard=true
       - --entrypoints.api.address=:8000
       - --log.level=DEBUG
+      - --providers.file.filename=/traefik/dynamic_conf.yml
+      - --providers.file.watch=true
     ports:
       - "80:80"
       - "8080:8080"  # Traefik 대시보드
