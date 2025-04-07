@@ -41,5 +41,5 @@ http:
     dynamic-service:
       loadBalancer:
         servers:
-          - url: "http://{best_node}"
+          - url: "http://{best_node}:8000"
 """
