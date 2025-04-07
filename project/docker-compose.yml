@@ -91,6 +91,8 @@ services:
         - "traefik.http.routers.whoami.rule=Host(`whoami.local`)"
         - "traefik.http.services.whoami.loadbalancer.server.port=80"
         - "traefik.http.routers.whoami.entrypoints=web"
+      placements:
+        constraints: [node.role == manager]
     networks:
       - monitor_network
 
